@@ -1,6 +1,9 @@
 .box-header.with-border
   .box-title = t ".box_title"
 .box-body
+  - if f.object.errors[:payments_count].present?
+    .alert.alert-danger = f.object.errors[:payments_count].first
+
   = f.form_group :summ
     = f.label :summ
     = f.text_field :summ

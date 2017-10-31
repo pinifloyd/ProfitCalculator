@@ -14,10 +14,20 @@ class Borrower::Payment < ApplicationRecord
 
   belongs_to :borrower, class_name: 'Borrower'
 
-  validates :summ, numericality: { greater_than: 0 }
+  validates :summ, numericality: { greater_than_or_equal_to: 0 }
 
   # Need more time to investigate, but we can use custom validation I guess
   # validates :payed_at, format: { with: /\d{2}.\d{2}.\d{4}/ }
   validates :payed_at, presence: true
+
+  validate :payments_cannot_be_greater_than_term
+
+  private
+
+  def payments_cannot_be_greater_than_term
+    if borrower.payments.count >= borrower.term
+      errors.add(:payments_count, "Can not be greater then #{borrower.term}")
+    end
+  end
 
 end
