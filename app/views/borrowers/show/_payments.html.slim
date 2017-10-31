@@ -12,10 +12,15 @@
         tr
           th = Borrower::Payment.human_attribute_name :summ
           th = Borrower::Payment.human_attribute_name :payed_at
+          th.actions_sm_2
         - @payments.each do |payment|
           tr
             td = payment.summ
             td = payment.payed_at
+            td
+              .btn-group
+                = bs_button_edit edit_borrower_payment_path(@borrower, payment)
+                = bs_button_destroy borrower_payment_path(@borrower, payment)
 
 - if @payments.blank?
   .alert.alert-warning = t "shared.alert.not_found"
