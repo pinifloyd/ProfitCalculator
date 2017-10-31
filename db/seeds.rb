@@ -10,7 +10,7 @@
 #   Borrower.create name: name, summ: 1_000_000, norm_rate: 30, over_rate: 50, term: 6
 # end
 
-borrower = Borrower.create name: 'ЮЛ1', summ: 1_000_000, norm_rate: 30, over_rate: 50, term: 6
+borrower = Borrower.create name: 'ЮЛ1', summ: 1_000_000
 
 [ { summ: 191_666.67, payed_at: '10.01.2017' },
   { summ: 191_666.67, payed_at: '10.02.2017' },
@@ -20,7 +20,7 @@ borrower = Borrower.create name: 'ЮЛ1', summ: 1_000_000, norm_rate: 30, over_r
   { summ: 191_666.67, payed_at: '10.06.2017' }
 ].each { |payment| borrower.payments.create(payment) }
 
-borrower = Borrower.create name: 'ЮЛ2', summ: 1_000_000, norm_rate: 30, over_rate: 50, term: 6
+borrower = Borrower.create name: 'ЮЛ2', summ: 1_000_000
 
 [ { summ: 191_666.67, payed_at: '10.01.2017' },
   { summ: 191_666.67, payed_at: '10.02.2017' },
@@ -30,7 +30,7 @@ borrower = Borrower.create name: 'ЮЛ2', summ: 1_000_000, norm_rate: 30, over_r
   { summ: 0,          payed_at: '10.06.2017' }
 ].each { |payment| borrower.payments.create(payment) }
 
-borrower = Borrower.create name: 'ЮЛ3', summ: 1_000_000, norm_rate: 30, over_rate: 50, term: 6
+borrower = Borrower.create name: 'ЮЛ3', summ: 1_000_000
 
 [ { summ: 191_666.67, payed_at: '10.01.2017' },
   { summ: 191_666.67, payed_at: '10.02.2017' },

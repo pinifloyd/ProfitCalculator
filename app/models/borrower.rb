@@ -5,29 +5,45 @@
 #  id         :integer          not null, primary key
 #  name       :string
 #  summ       :decimal(12, 2)   default(0.0)
-#  norm_rate  :decimal(12, 2)   default(0.0)
-#  over_rate  :decimal(12, 2)   default(0.0)
-#  term       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  start_at   :date             default(Tue, 31 Oct 2017), not null
 #
 
 class Borrower < ApplicationRecord
 
-  MONTHES = 12.freeze
-  PERIOD  = 1.freeze
+  MONTHES   = 12
+  TERM      = 6
+  PERIOD    = 1
+  NORM_RATE = 30.0
+  OVER_RATE = 50.0
 
   has_many :payments, class_name: 'Borrower::Payment', dependent: :destroy
 
   validates :name, length: { minimum: 3 }, uniqueness: true
-  validates :summ, :norm_rate, :over_rate, :term, numericality: { greater_than: 0 }
+  validates :summ, numericality: { greater_than: 0 }
 
-  # WIP: hardcoded as I have many questions
+  #
+  # Backward Compatibility
+  #----------------------------------------------------------------------------
+  def term
+    TERM
+  end
+
   def period
     PERIOD
   end
 
+  def norm_rate
+    NORM_RATE
+  end
+
+  def over_rate
+    OVER_RATE
+  end
+
+  #
+  # Calculation methods
+  #----------------------------------------------------------------------------
   def payout_by_debt
     summ / term
   end
@@ -42,17 +58,6 @@ class Borrower < ApplicationRecord
 
   def payout_total_credit
     payout_total_month * term
-  end
-
-  def periods
-    today = Date.current
-
-    monthes_before_today = (today.year * 12 + today.month)
-    monthes_before_start = (start_at.year * 12 + start_at.month)
-
-    count = monthes_before_today - monthes_before_start
-
-    (0..count).map { |number| start_at + number.month }
   end
 
 end

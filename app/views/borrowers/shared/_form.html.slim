@@ -2,11 +2,6 @@
   .box-title = t ".box_title"
 
 .box-body
-  = f.form_group :start_at
-    = f.label :start_at
-    = f.text_field :start_at, value: localize_date(f.object.start_at), class: "datepicker"
-    = f.error_for :start_at
-
   = f.form_group :name
     = f.label :name
     = f.text_field :name
@@ -16,21 +11,6 @@
     = f.label :summ
     = f.text_field :summ
     = f.error_for :summ
-
-  = f.form_group :norm_rate
-    = f.label :norm_rate
-    = f.text_field :norm_rate
-    = f.error_for :norm_rate
-
-  = f.form_group :over_rate
-    = f.label :over_rate
-    = f.text_field :over_rate
-    = f.error_for :over_rate
-
-  = f.form_group :term
-    = f.label :term
-    = f.text_field :term
-    = f.error_for :term
 
 .box-footer
   .btn-group
