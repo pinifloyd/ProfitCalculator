@@ -1,0 +1,37 @@
+section.content
+  .row
+    .col-md-12
+      .box.box-primary
+        .box-header.with-border
+          h3.box-title = t ".borrowers_list"
+
+        .box-body.no-padding
+          .mailbox-controls
+            .btn-group
+              / TODO: New Borrower
+
+          - if @borrowers.present?
+            table.table
+              tr
+                th = Borrower.human_attribute_name :name
+                th = Borrower.human_attribute_name :summ
+                th = Borrower.human_attribute_name :norm_rate
+                th = Borrower.human_attribute_name :over_rate
+                th = Borrower.human_attribute_name :term
+                th = Borrower.human_attribute_name :period
+                th.actions_sm_1
+              - @borrowers.each do |borrower|
+                tr
+                  td = borrower.name
+                  td = borrower.summ
+                  td = borrower.norm_rate
+                  td = borrower.over_rate
+                  td = borrower.term
+                  td = borrower.period
+                  td
+                    .btn-group
+                      = bs_button_show borrower_path(borrower)
+
+    .col-md-12
+      - if @borrowers.blank?
+        .alert.alert-warning NOT FOUND

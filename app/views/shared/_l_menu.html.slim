@@ -3,4 +3,6 @@ aside.main-sidebar
     ul.sidebar-menu
       li.header = t ".menu_header"
       li
-        a href="#" TODO
+        = link_to borrowers_path
+          = fa_icon :users
+          span = t ".borrowers"

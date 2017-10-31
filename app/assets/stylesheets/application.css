@@ -17,3 +17,7 @@
  *= require AdminLTE
  *= require AdminLTE/skin-blue
  */
+
+table th.actions_sm_1 {
+  width: 50px;
+}
