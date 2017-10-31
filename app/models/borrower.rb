@@ -17,8 +17,14 @@ class Borrower < ApplicationRecord
   NORM_RATE = 30.0
   OVER_RATE = 50.0
 
+  has_many :periods, class_name: 'Borrower::Period', dependent: :destroy
+
   validates :name, length: { minimum: 3 }, uniqueness: true
   validates :summ, numericality: { greater_than: 0 }
+
+  def can_add_new_period?
+    !(periods.count == term || periods.ahead.any?)
+  end
 
   #
   # Backward Compatibility
@@ -39,6 +45,10 @@ class Borrower < ApplicationRecord
     OVER_RATE
   end
 
+  def intime_periods
+    periods.intime.count
+  end
+
   #
   # Calculation methods
   #----------------------------------------------------------------------------
@@ -47,15 +57,31 @@ class Borrower < ApplicationRecord
   end
 
   def payout_by_percents
-    (summ * norm_rate) / MONTHES / 100
+    summ * norm_rate / MONTHES / 100
+  end
+
+  def payout_by_overdue
+    summ * over_rate / MONTHES / 100
   end
 
   def payout_total_month
     payout_by_debt + payout_by_percents
   end
 
+  def payout_total_month_overdue
+    payout_by_debt + payout_by_overdue
+  end
+
   def payout_total_credit
     payout_total_month * term
+  end
+
+  def payout_total_debt
+    payout_by_debt * intime_periods
+  end
+
+  def payout_total_ahead
+    summ - payout_total_debt + payout_by_percents
   end
 
 end

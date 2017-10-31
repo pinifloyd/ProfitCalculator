@@ -3,4 +3,20 @@
     h3.box-title = t ".box_title"
 
   .box-body.no-padding
-    |Here Will Be Periods
+    - if @borrower.can_add_new_period?
+      .mailbox-controls
+        .btn-group
+          = bs_button_add new_borrower_periods_path(@borrower)
+
+    - if @periods.present?
+      table.table
+        tr
+          th = Borrower::Period.human_attribute_name :summ
+          th = Borrower::Period.human_attribute_name :state
+        - @periods.each do |period|
+          tr
+            td = period.summ
+            td = period.state
+
+- if @periods.blank?
+  .alert.alert-warning = t "shared.alert.not_found"

@@ -1,0 +1,15 @@
+.box.box-primary
+  = form_for @period, url: borrower_periods_path(@borrower), as: :period do |f|
+    .box-header.with-border
+      h3.box-title = t ".box_title"
+
+    .box-body
+      = f.form_group :event
+        = f.label :event
+        = f.select :event, f.object.state_events_for_select, {}, class: "form-control"
+        = f.error_for :event
+
+    .box-footer
+      .btn-group
+        = bs_button_save content: { type: :full }, type: :button
+        = bs_button_back content: { type: :full }

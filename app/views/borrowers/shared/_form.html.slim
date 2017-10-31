@@ -7,10 +7,11 @@
     = f.text_field :name
     = f.error_for :name
 
-  = f.form_group :summ
-    = f.label :summ
-    = f.text_field :summ
-    = f.error_for :summ
+  - if f.object.new_record?
+    = f.form_group :summ
+      = f.label :summ
+      = f.text_field :summ
+      = f.error_for :summ
 
 .box-footer
   .btn-group

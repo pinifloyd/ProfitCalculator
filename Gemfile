@@ -30,6 +30,8 @@ gem 'slim'
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'draper'
+gem 'state_machine'
+gem 'state_machines-activerecord'
 
 # Locales
 #------------------------------------------------------------------------------

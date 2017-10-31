@@ -1,0 +1,15 @@
+p.text-muted.text-center = t ".info_a"
+
+ul.list-group.list-group-unbordered
+  li.list-group-item
+    b = Borrower.human_attribute_name :payout_by_debt
+    .pull-right = @borrower.payout_by_debt
+  li.list-group-item
+    b = Borrower.human_attribute_name :payout_by_percents
+    .pull-right = @borrower.payout_by_percents
+  li.list-group-item
+    b = Borrower.human_attribute_name :payout_total_month
+    .pull-right = @borrower.payout_total_month
+  li.list-group-item
+    b = Borrower.human_attribute_name :payout_total_credit
+    .pull-right = @borrower.payout_total_credit

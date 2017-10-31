@@ -9,6 +9,7 @@ class BorrowersController < ApplicationController
 
   def show
     @borrower = BorrowerDecorator.decorate(@borrower)
+    @periods = Borrower::PeriodDecorator.decorate_collection(@borrower.periods)
   end
 
   def new
@@ -16,7 +17,7 @@ class BorrowersController < ApplicationController
   end
 
   def create
-    @borrower = Borrower.new borrower_params
+    @borrower = Borrower.new create_borrower_params
 
     if @borrower.save
       redirect_to borrower_url @borrower
@@ -28,7 +29,7 @@ class BorrowersController < ApplicationController
   def edit; end
 
   def update
-    if @borrower.update_attributes borrower_params
+    if @borrower.update_attributes edit_borrower_params
       redirect_to borrower_url @borrower
     else
       render action: :edit
@@ -45,8 +46,12 @@ class BorrowersController < ApplicationController
     @borrower = Borrower.find(params[:id])
   end
 
-  def borrower_params
+  def create_borrower_params
     params.require(:borrower).permit :name, :summ
+  end
+
+  def edit_borrower_params
+    params.require(:borrower).permit :name
   end
 
 end

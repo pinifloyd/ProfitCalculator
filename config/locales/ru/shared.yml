@@ -11,3 +11,15 @@ ru:
       license_html:   "&nbsp;Все права защищены"
     alert:
       not_found: По вашему запросу ничего не найдено
+
+    borrower:
+      profile:
+        sources:
+          sources: Исходные данные
+        info_a:
+          info_a: Расчет выплат
+
+  borrower_period_masks:
+    intime: Вовремя
+    outtime: Просрочка
+    final: Досрочно

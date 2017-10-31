@@ -3,11 +3,13 @@ ru:
     index:
       borrowers_list: Список заемщиков
     show:
-      profile:
-        sources: Исходные значения
-        result_1: Расчет 1
       periods:
         box_title: Периоды
     shared:
       form:
         box_title: Заемщик
+
+    periods:
+      new:
+        form:
+          box_title: Период

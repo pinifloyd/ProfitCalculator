@@ -1,0 +1,13 @@
+ru:
+  states:
+    period:
+      intime:  Вовремя
+      overdue: Просрочен
+      ahead:   Досрочно
+      init:    Новый
+
+  events:
+    period:
+      set_intime:  "Отметить: Вовремя"
+      set_overdue: "Отметить: Просрочен"
+      set_ahead:   "Отметить: Досрочно"
