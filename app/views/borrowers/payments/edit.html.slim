@@ -1,5 +1,0 @@
-.row
-  .col-md-12
-    .box.box-primary
-      = form_for @payment, url: borrower_payment_path(@borrower, @payment), as: :payment do |f|
-        = render partial: "borrowers/payments/shared/form", locals: { f: f }

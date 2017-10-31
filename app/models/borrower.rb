@@ -17,8 +17,6 @@ class Borrower < ApplicationRecord
   NORM_RATE = 30.0
   OVER_RATE = 50.0
 
-  has_many :payments, class_name: 'Borrower::Payment', dependent: :destroy
-
   validates :name, length: { minimum: 3 }, uniqueness: true
   validates :summ, numericality: { greater_than: 0 }
 
