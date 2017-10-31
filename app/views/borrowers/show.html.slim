@@ -1,0 +1,50 @@
+.row
+  .col-md-3
+    .box.box-primary
+      .box-body.box-profile
+        h3.profile-username.text-center = @borrower.name
+
+        hr
+
+        p.text-muted.text-center = t ".sources"
+
+        ul.list-group.list-group-unbordered
+          li.list-group-item
+            b = Borrower.human_attribute_name :summ
+            .pull-right = @borrower.summ
+          li.list-group-item
+            b = Borrower.human_attribute_name :norm_rate
+            .pull-right = @borrower.norm_rate
+          li.list-group-item
+            b = Borrower.human_attribute_name :over_rate
+            .pull-right = @borrower.over_rate
+          li.list-group-item
+            b = Borrower.human_attribute_name :term
+            .pull-right = @borrower.term
+          li.list-group-item
+            b = Borrower.human_attribute_name :period
+            .pull-right = @borrower.period
+
+        p.text-muted.text-center = t ".result_1"
+
+        ul.list-group.list-group-unbordered
+          li.list-group-item
+            b = Borrower.human_attribute_name :payout_by_debt
+            .pull-right = @borrower.payout_by_debt
+          li.list-group-item
+            b = Borrower.human_attribute_name :payout_by_percents
+            .pull-right = @borrower.payout_by_percents
+          li.list-group-item
+            b = Borrower.human_attribute_name :payout_total_month
+            .pull-right = @borrower.payout_total_month
+          li.list-group-item
+            b = Borrower.human_attribute_name :payout_total_credit
+            .pull-right = @borrower.payout_total_credit
+
+        = bs_button_edit edit_borrower_path(@borrower), \
+          content: { type: :full }, btn: { class: 'btn-block', type: :warning }
+
+        = bs_button_destroy borrower_path(@borrower), \
+          content: { type: :full }, btn: { class: 'btn-block', type: :danger }
+
+  .col-md-9

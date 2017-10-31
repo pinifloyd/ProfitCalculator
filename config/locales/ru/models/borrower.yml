@@ -1,0 +1,14 @@
+ru:
+  activerecord:
+    attributes:
+      borrower:
+        name: Имя
+        summ: Сумма
+        norm_rate: "Ставка: годовых"
+        over_rate: "Ставка: годовых (просрочка)"
+        term: Срок (мес)
+        period: Период (мес)
+        payout_by_debt: "Месячная выплата: долг"
+        payout_by_percents: "Месячная выплата: %"
+        payout_total_month: "Месячная выплата: общая"
+        payout_total_credit: Сумма выплаты

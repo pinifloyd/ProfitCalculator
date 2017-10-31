@@ -24,5 +24,6 @@ html
     .wrapper
       = render partial: "shared/header"
       = render partial: "shared/l_menu"
-      .content-wrapper = yield
+      .content-wrapper
+        section.content = yield
       = render partial: "shared/footer"

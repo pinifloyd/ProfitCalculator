@@ -1,0 +1,36 @@
+.box-header.with-border
+  .box-title = t ".box_title"
+
+.box-body
+  = f.form_group :name
+    = f.label :name
+    = f.text_field :name
+    = f.error_for :name
+
+  = f.form_group :summ
+    = f.label :summ
+    = f.text_field :summ
+    = f.error_for :summ
+
+  = f.form_group :norm_rate
+    = f.label :norm_rate
+    = f.text_field :norm_rate
+    = f.error_for :norm_rate
+
+  = f.form_group :over_rate
+    = f.label :over_rate
+    = f.text_field :over_rate
+    = f.error_for :over_rate
+
+  = f.form_group :term
+    = f.label :term
+    = f.text_field :term
+    = f.error_for :term
+
+.box-footer
+  .btn-group
+    = bs_button_save content: { type: :full }, type: :button
+    = bs_button_back content: { type: :full }
+  - unless f.object.new_record?
+    .btn-group.pull-right
+      = bs_button_destroy borrower_path(f.object), content: { type: :full }
