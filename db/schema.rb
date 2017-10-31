@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031113542) do
+ActiveRecord::Schema.define(version: 20171031150124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "borrower_payments", force: :cascade do |t|
+    t.integer "borrower_id"
+    t.decimal "summ", precision: 12, scale: 2, default: "0.0"
+    t.date "payed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "borrowers", force: :cascade do |t|
     t.string "name"

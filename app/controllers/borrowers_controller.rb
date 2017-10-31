@@ -9,6 +9,7 @@ class BorrowersController < ApplicationController
 
   def show
     @borrower = BorrowerDecorator.decorate(@borrower)
+    @payments = Borrower::PaymentDecorator.decorate_collection(@borrower.payments)
   end
 
   def new

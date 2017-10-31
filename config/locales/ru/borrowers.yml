@@ -3,8 +3,15 @@ ru:
     index:
       borrowers_list: Список заемщиков
     show:
-      sources: Исходные значения
-      result_1: Расчет 1
+      profile:
+        sources: Исходные значения
+        result_1: Расчет 1
+      payments:
+        box_title: Список выплат
     shared:
       form:
         box_title: Заемщик
+
+    payments:
+      new:
+        box_title: Выплата

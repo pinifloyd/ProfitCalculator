@@ -1,0 +1,21 @@
+.box.box-primary
+  .box-header.with-border
+    h3.box-title = t ".box_title"
+
+  .box-body.no-padding
+    .mailbox-controls
+      .btn-group
+        = bs_button_add new_borrower_payment_path(@borrower)
+
+    - if @payments.present?
+      table.table
+        tr
+          th = Borrower::Payment.human_attribute_name :summ
+          th = Borrower::Payment.human_attribute_name :payed_at
+        - @payments.each do |payment|
+          tr
+            td = payment.summ
+            td = payment.payed_at
+
+- if @payments.blank?
+  .alert.alert-warning = t "shared.alert.not_found"
