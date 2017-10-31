@@ -1,12 +1,13 @@
 class BorrowersController < ApplicationController
 
+  before_action :find_borrower, only: %i(show destroy)
+
   def index
     @borrowers = Borrower.order(id: :desc)
     @borrowers = BorrowerDecorator.decorate_collection(@borrowers)
   end
 
   def show
-    @borrower = Borrower.find(params[:id])
     @borrower = BorrowerDecorator.decorate(@borrower)
   end
 
@@ -31,9 +32,15 @@ class BorrowersController < ApplicationController
   end
 
   def destroy
+    @borrower.destroy and redirect_to borrowers_url
   end
 
   private
+
+  def find_borrower
+    # Cash like ||= here useless
+    @borrower = Borrower.find(params[:id])
+  end
 
   def borrower_params
     params.require(:borrower).permit :name, :summ, :norm_rate, :over_rate, :term
