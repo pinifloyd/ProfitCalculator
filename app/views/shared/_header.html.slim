@@ -1,0 +1,14 @@
+header.main-header
+  = render partial: "shared/logo"
+
+  nav.navbar.navbar-static-top role="navigation"
+    a.sidebar-toggle href="#" data-toggle="offcanvas" role="button"
+      span.sr-only Toggle navigation
+
+    .navbar-custom-menu
+      ul.nav.navbar-nav
+        li.dropdown.user.user-menu
+          a.dropdown-toggle href="#" data-toggle="dropdown"
+            span.hidden-xs
+              i.fa.fa-user &nbsp;
+              = t ".user_name_or_role"
