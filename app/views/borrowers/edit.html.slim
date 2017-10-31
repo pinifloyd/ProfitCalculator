@@ -1,5 +1,5 @@
 .row
   .col-md-12
     .box.box-default
-      = form_for @borrower, url: borrowers_path, as: :borrower do |f|
+      = form_for @borrower, url: borrower_path(@borrower), as: :borrower do |f|
         = render partial: "borrowers/shared/form", locals: { f: f }

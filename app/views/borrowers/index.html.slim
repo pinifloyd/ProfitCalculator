@@ -19,7 +19,7 @@ section.content
                 th = Borrower.human_attribute_name :over_rate
                 th = Borrower.human_attribute_name :term
                 th = Borrower.human_attribute_name :period
-                th.actions_sm_2
+                th.actions_sm_3
               - @borrowers.each do |borrower|
                 tr
                   td = borrower.name
@@ -31,6 +31,7 @@ section.content
                   td
                     .btn-group
                       = bs_button_show borrower_path(borrower)
+                      = bs_button_edit edit_borrower_path(borrower)
                       = bs_button_destroy borrower_path(borrower)
 
     .col-md-12

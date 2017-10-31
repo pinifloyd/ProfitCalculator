@@ -2,3 +2,5 @@ ru:
   buttons:
     save: Сохранить
     back: Назад
+    destroy: Удалить
+    edit: Редактировать

@@ -1,6 +1,6 @@
 class BorrowersController < ApplicationController
 
-  before_action :find_borrower, only: %i(show destroy)
+  before_action :find_borrower, only: %i(show edit update destroy)
 
   def index
     @borrowers = Borrower.order(id: :desc)
@@ -25,10 +25,14 @@ class BorrowersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
+    if @borrower.update_attributes borrower_params
+      redirect_to borrower_url @borrower
+    else
+      render action: :edit
+    end
   end
 
   def destroy
@@ -38,7 +42,6 @@ class BorrowersController < ApplicationController
   private
 
   def find_borrower
-    # Cash like ||= here useless
     @borrower = Borrower.find(params[:id])
   end
 

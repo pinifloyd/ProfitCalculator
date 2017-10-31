@@ -41,4 +41,10 @@
             b = Borrower.human_attribute_name :payout_total_credit
             .pull-right = @borrower.payout_total_credit
 
+        = bs_button_edit edit_borrower_path(@borrower), \
+          content: { type: :full }, btn: { class: 'btn-block', type: :warning }
+
+        = bs_button_destroy borrower_path(@borrower), \
+          content: { type: :full }, btn: { class: 'btn-block', type: :danger }
+
   .col-md-9

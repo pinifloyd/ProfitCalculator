@@ -5,3 +5,6 @@ ru:
     show:
       sources: Исходные значения
       result_1: Расчет 1
+    shared:
+      form:
+        box_title: Заемщик
