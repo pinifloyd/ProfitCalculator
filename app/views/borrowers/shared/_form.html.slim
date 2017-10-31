@@ -2,6 +2,11 @@
   .box-title = t ".box_title"
 
 .box-body
+  = f.form_group :start_at
+    = f.label :start_at
+    = f.text_field :start_at, value: localize_date(f.object.start_at), class: "datepicker"
+    = f.error_for :start_at
+
   = f.form_group :name
     = f.label :name
     = f.text_field :name

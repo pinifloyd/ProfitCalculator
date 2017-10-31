@@ -12,6 +12,8 @@ ru:
         payout_by_percents: "Месячная выплата: %"
         payout_total_month: "Месячная выплата: общая"
         payout_total_credit: Сумма выплаты
+        start_at: Дата отсчета
+
       borrower/payment:
         summ: Сумма
         payed_at: Дата

@@ -8,6 +8,9 @@
 
     ul.list-group.list-group-unbordered
       li.list-group-item
+        b = Borrower.human_attribute_name :start_at
+        .pull-right = @borrower.start_at
+      li.list-group-item
         b = Borrower.human_attribute_name :summ
         .pull-right = @borrower.summ
       li.list-group-item

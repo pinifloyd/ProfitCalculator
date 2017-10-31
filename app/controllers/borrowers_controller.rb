@@ -49,7 +49,7 @@ class BorrowersController < ApplicationController
   end
 
   def borrower_params
-    params.require(:borrower).permit :name, :summ, :norm_rate, :over_rate, :term
+    params.require(:borrower).permit :name, :summ, :norm_rate, :over_rate, :term, :start_at
   end
 
 end

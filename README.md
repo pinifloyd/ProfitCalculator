@@ -53,3 +53,7 @@ rails s
 # NOTES:
 
 * Yarn was skipped as I want to use AssetPipeline
+
+# TODO:
+
+* Create Periods (jsonb field or class)

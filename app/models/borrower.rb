@@ -10,6 +10,7 @@
 #  term       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  start_at   :date             default(Tue, 31 Oct 2017), not null
 #
 
 class Borrower < ApplicationRecord
@@ -41,6 +42,17 @@ class Borrower < ApplicationRecord
 
   def payout_total_credit
     payout_total_month * term
+  end
+
+  def periods
+    today = Date.current
+
+    monthes_before_today = (today.year * 12 + today.month)
+    monthes_before_start = (start_at.year * 12 + start_at.month)
+
+    count = monthes_before_today - monthes_before_start
+
+    (0..count).map { |number| start_at + number.month }
   end
 
 end

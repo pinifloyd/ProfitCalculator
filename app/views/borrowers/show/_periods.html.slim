@@ -1,0 +1,13 @@
+.box.box-primary
+  .box-header.with-border
+    h3.box-title TITLE
+  .box-body.no-padding
+
+    table.table
+      tr
+        th Period
+        th Summ
+      - @borrower.periods.each do |period|
+        tr
+          td = localize_date(period, :l_year_month)
+          td 0
