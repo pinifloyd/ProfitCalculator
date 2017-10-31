@@ -6,27 +6,45 @@
 
 # Configure Application (DEV)
 
-* Copy database.yml and configure for your needs
+Copy database.yml and configure for your needs
 
 ```
 cp config/database.yml.example config/database.yml
 ```
 
-* Create Database
+Create Database
 
 ```
 rails db:create
 ```
 
+Run Migrations
+
+```
+rails db:migrate
+```
+
+Run Seeds
+
+```
+rails db:seed
+```
+
+Or You Can Use One Command
+
+```
+rails db:create && rails db:migrate && rails db:seed
+```
+
 # Start Application (DEV)
 
-* Start Database
+Start Database
 
 ```
 postgres -D /usr/local/var/postgres
 ```
 
-* Start Application
+Start Application
 
 ```
 rails s
