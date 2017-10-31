@@ -17,6 +17,9 @@ class Borrower < ApplicationRecord
   MONTHES = 12.freeze
   PERIOD  = 1.freeze
 
+  validates :name, length: { minimum: 3 }, uniqueness: true
+  validates :summ, :norm_rate, :over_rate, :term, numericality: { greater_than: 0 }
+
   # WIP: hardcoded as I have many questions
   def period
     PERIOD

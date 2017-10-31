@@ -8,7 +8,7 @@ section.content
         .box-body.no-padding
           .mailbox-controls
             .btn-group
-              / TODO: New Borrower
+              = bs_button new_borrower_path, content: { icon: :'user-plus' }
 
           - if @borrowers.present?
             table.table

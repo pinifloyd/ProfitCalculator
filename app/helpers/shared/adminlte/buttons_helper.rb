@@ -1,22 +1,6 @@
 module Shared::Adminlte::ButtonsHelper
 
   ###
-  # Return icon
-  #
-  # @option options icon
-  # @option options icon: 'icon'
-  #
-  # @param param args[0] is a options[:icon]
-  #------------------------------------------------------------------------------------------------
-  def fa_icon(*args)
-    options = args.extract_options!
-
-    icon = args[0] || options[:icon]
-
-    content_tag :i, nil, class: "fa fa-#{icon}"
-  end
-
-  ###
   # Return button classes
   #
   # @option options class: 'btn-class-one btn-class-two'
@@ -114,7 +98,7 @@ module Shared::Adminlte::ButtonsHelper
     options[:content] = {
       type: :icon,
       icon: :check,
-      text: t('actions.save')
+      text: t('buttons.save')
     }.deep_merge(
       options.delete(:content) || {}
     )
@@ -146,7 +130,7 @@ module Shared::Adminlte::ButtonsHelper
     options[:content] = {
       type: :icon,
       icon: :'arrow-left',
-      text: t('actions.back')
+      text: t('buttons.back')
     }.deep_merge(
       options.delete(:content) || {}
     )
@@ -178,7 +162,7 @@ module Shared::Adminlte::ButtonsHelper
     options[:content] = {
       type: :icon,
       icon: :'trash-o',
-      text: t('actions.destroy')
+      text: t('buttons.destroy')
     }.deep_merge(
       options.delete(:content) || {}
     )
@@ -212,7 +196,7 @@ module Shared::Adminlte::ButtonsHelper
     options[:content] = {
       type: :icon,
       icon: :eye,
-      text: t('actions.show')
+      text: t('buttons.show')
     }.deep_merge(
       options.delete(:content) || {}
     )
@@ -244,7 +228,7 @@ module Shared::Adminlte::ButtonsHelper
     options[:content] = {
       type: :icon,
       icon: :edit,
-      text: t('actions.edit')
+      text: t('buttons.edit')
     }.deep_merge(
       options.delete(:content) || {}
     )
@@ -276,7 +260,7 @@ module Shared::Adminlte::ButtonsHelper
     options[:content] = {
       type: :icon,
       icon: :minus,
-      text: t('actions.remove')
+      text: t('buttons.remove')
     }.deep_merge(
       options.delete(:content) || {}
     )
@@ -308,7 +292,7 @@ module Shared::Adminlte::ButtonsHelper
     options[:content] = {
       type: :icon,
       icon: :plus,
-      text: t('actions.add')
+      text: t('buttons.add')
     }.deep_merge(
       options.delete(:content) || {}
     )
@@ -340,7 +324,7 @@ module Shared::Adminlte::ButtonsHelper
     options[:content] = {
       type: :icon,
       icon: :search,
-      text: t('actions.search')
+      text: t('buttons.search')
     }.deep_merge(
       options.delete(:content) || {}
     )

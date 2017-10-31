@@ -43,4 +43,20 @@ class LTEFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
+  %i(
+    text_field
+    phone_field
+    email_field
+  ).each do |method_name|
+    define_method method_name do |method, options = {}|
+      klass = %w(form-control)
+
+      klass << options[:class] if options[:class].present?
+
+      options[:class] = klass.flatten
+
+      super method, options
+    end
+  end
+
 end
