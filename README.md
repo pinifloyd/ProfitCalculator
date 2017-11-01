@@ -1,8 +1,29 @@
 # Environment
 
+* rbenv 1.1.1
 * ruby 2.4.2
 * rails 5.1.4
 * postgresql 9.5
+
+# Prepare Env for App
+
+Install Ruby (Optional rbenv or rvm). Then create gemset:
+
+```
+rbenv gemset create 2.4.2 ProfitCalculator
+```
+
+Install bundler:
+
+```
+gem install bundler
+```
+
+Install required gems:
+
+```
+bundle install
+```
 
 # Configure Application (DEV)
 
@@ -53,7 +74,3 @@ rails s
 # NOTES:
 
 * Yarn was skipped as I want to use AssetPipeline
-
-# TODO:
-
-* Create Periods (jsonb field or class)
