@@ -12,6 +12,9 @@ ru:
         payout_by_percents: "Месячная выплата: %"
         payout_total_month: "Месячная выплата: общая"
         payout_total_credit: Сумма выплаты
+        payout_percents: Выплачено %
+        payout_summ: Выплачено ОД
+        payout_profit: Доходность годовых
 
       borrower/period:
         summ: Сумма

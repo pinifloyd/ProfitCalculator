@@ -49,6 +49,14 @@ class Borrower < ApplicationRecord
     periods.intime.count
   end
 
+  def overdue_periods
+    periods.overdue.count
+  end
+
+  def ahead_periods
+    periods.ahead.count
+  end
+
   #
   # Calculation methods
   #----------------------------------------------------------------------------
@@ -82,6 +90,20 @@ class Borrower < ApplicationRecord
 
   def payout_total_ahead
     summ - payout_total_debt + payout_by_percents
+  end
+
+  def payout_percents
+    payout_by_percents * (intime_periods + ahead_periods) + payout_by_overdue * overdue_periods
+  end
+
+  def payout_summ
+    total = (intime_periods + overdue_periods) * payout_by_debt
+    total += periods.ahead.first.summ - payout_by_percents if ahead_periods == 1
+    total
+  end
+
+  def payout_profit
+    payout_percents / payout_summ * MONTHES / term * 100
   end
 
 end

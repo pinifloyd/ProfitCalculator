@@ -18,6 +18,8 @@ ru:
           sources: Исходные данные
         info_a:
           info_a: Расчет выплат
+        info_b:
+          info_b: Статистика
 
   borrower_period_masks:
     intime: Вовремя
