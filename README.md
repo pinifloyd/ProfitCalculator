@@ -71,6 +71,20 @@ Start Application
 rails s
 ```
 
+# Deploy
+
+See SERVER.md, then use next command:
+
+```
+cap cap production deploy:start
+```
+
+Or the same but for another branch then master
+
+```
+cap production deploy:start BRANCH=your-branch-name
+```
+
 # NOTES:
 
 * Yarn was skipped as I want to use AssetPipeline
