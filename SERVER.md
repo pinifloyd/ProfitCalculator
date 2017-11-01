@@ -167,12 +167,12 @@ $ sudo iptables -S
 $ sudo apt-get install iptables-persistent
 ```
 
-```
 Просит сохранить текущие настройки, соглашаемся - должны появиться новые файлы:
-```
 
-# /etc/iptables/rules.v4
-# /etc/iptables/rules.v6
+```
+/etc/iptables/rules.v4
+/etc/iptables/rules.v6
+```
 
 Ниже содержимое rules.v4:
 
@@ -219,23 +219,41 @@ $ sudo cat /etc/iptables/rules.v4 | sudo iptables-restore -c
 Комментарии:
 
 Скидываем трафик forward, так как мы не роутер и не перенаправляем его никуда.
-# :FORWARD DROP [0:0]
+
+```
+:FORWARD DROP [0:0]
+```
 
 Все остальные правила вносим перед COMMIT. Разрешаем локальный трафик:
-# -A INPUT -i lo -j ACCEPT
+
+```
+-A INPUT -i lo -j ACCEPT
+```
 
 Разрешаем все установленные активные соединения, иначе исходящие пакеты будут откланяться:
-# -A INPUT -m state --state RELATED,ESTABLISHED -p all -j ACCEPT
+
+```
+-A INPUT -m state --state RELATED,ESTABLISHED -p all -j ACCEPT
+```
 
 Разрешаем ssh:
-# -A INPUT -m state --state NEW -p tcp --dport 22 -j ACCEPT
+
+```
+-A INPUT -m state --state NEW -p tcp --dport 22 -j ACCEPT
+```
 
 Разрешаем web:
-# -A INPUT -m state --state NEW -p tcp --dport 80 -j ACCEPT
+
+```
+-A INPUT -m state --state NEW -p tcp --dport 80 -j ACCEPT
+```
 
 Ставим ловушку для ботов (сначала нужно установить tarpit: xtables-addons-dkms - xt_TARPIT):
-# -A INPUT -p tcp -m tcp -j TARPIT
-# -A INPUT -p udp -j DROP
+
+```
+-A INPUT -p tcp -m tcp -j TARPIT
+-A INPUT -p udp -j DROP
+```
 
 # FAIL2BAN
 
