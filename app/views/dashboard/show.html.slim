@@ -1,0 +1,16 @@
+.row
+  .col-md-3
+    .small-box.bg-green
+      .inner
+        h3 = @investor.profit_real
+        p = t "investor.profit_real"
+      .icon
+        i.ion.ion-pie-graph
+
+  .col-md-3
+    .small-box.bg-aqua
+      .inner
+        h3 = @investor.profit_virt
+        p = t "investor.profit_virt"
+      .icon
+        i.ion.ion-stats-bars

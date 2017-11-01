@@ -3,6 +3,10 @@ aside.main-sidebar
     ul.sidebar-menu
       li.header = t ".menu_header"
       li
+        = link_to root_path
+          = fa_icon :dashboard
+          span = t ".dashboard"
+      li
         = link_to borrowers_path
           = fa_icon :users
           span = t ".borrowers"

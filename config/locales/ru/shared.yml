@@ -4,6 +4,7 @@ ru:
       user_name_or_role: Инвестор
     l_menu:
       menu_header: Заголовок 1
+      dashboard: Статистика
       borrowers: Заемщики
     footer:
       r_content_html: Что-то еще справа
